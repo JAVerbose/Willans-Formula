@@ -1,10 +1,10 @@
 # Compiler and compiler flags
 CC = gcc
-CFLAGS = -Wall
+CFLAGS = -Wall -lm
 
 # Source file and target executable
-SRC = main.c
-TARGET = main
+SRC = willans.c
+TARGET = willans
 
 all: $(TARGET)
 

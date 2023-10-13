@@ -270,3 +270,5 @@ Let's calculate algorithm complexity:
 So, the algorithm has an exponential time complexity in terms of \(n\), which means it can become very slow for large values of \(n\). It's worth noting that this complexity is based on the mathematical expressions and not on traditional algorithmic operations. In practice, the actual execution time will depend on the specific implementation and the efficiency of the underlying hardware and software.
 
 Let's code it.
+
+UPD: Somehow it doesn't work and breaks on 6th prime. I assume it should be due to approximations of floating numbers.
