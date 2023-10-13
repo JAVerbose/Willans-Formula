@@ -116,13 +116,13 @@ Certainly, here's a more readable version of the provided explanation:
 
 ---
 
-Now that we have implemented a prime number detector, let's use it to count the prime numbers. We can count the primes in the range \([1, i]\) by summing up all the results of the prime number detector for every number in that range. The formula for counting primes is as follows:
+Now that we have implemented a prime number detector, let's use it to count the prime numbers. We can count the primes in the range $[1, i]$ by summing up all the results of the prime number detector for every number in that range. The formula for counting primes is as follows:
 
 $$
 \sum_{j=1}^{i} \left\lfloor \left(\cos(\pi \frac{(j - 1)! + 1}{j})\right)^2 \right\rfloor
 $$
 
-For example, when \(i = 10\), we find that there are 4 primes in the range \([1, 10]\): 2, 3, 5, and 7. The calculations are as follows:
+For example, when $i = 10$, we find that there are 4 primes in the range $[1, 10]$: 2, 3, 5, and 7. The calculations are as follows:
 
 $$
 \sum_{j=1}^{10} \left\lfloor \left(\cos(\pi \frac{(j - 1)! + 1}{j})\right)^2 \right\rfloor =
@@ -137,7 +137,7 @@ $$
 1_1 + 1_2 + 1_3 + 0_4 + 1_5 + 0_6 + 1_7 + 0_8 + 0_9 + 0_{10} = 5
 $$
 
-So, there are 5 prime numbers in the range \([1, 10]\). But, considering we can't count $1$, we need to subtract $1$ from the result. So, we found out, that the sole purpose of inner denominator is to count primes. 
+So, there are 5 prime numbers in the range $[1, 10]$. But, considering we can't count $1$, we need to subtract $1$ from the result. So, we found out, that the sole purpose of inner denominator is to count primes. 
 
 $$
 \sum_{j=1}^{10} 
@@ -220,7 +220,7 @@ $$
 
 ---
 
-The last part of the formula is the sum of all the results of the prime number detector for every $i$ in the range \([1, 2^n]\). We need to go that far in order to be certain that we are past $nth$ prime. The formula is as follows:
+The last part of the formula is the sum of all the results of the prime number detector for every $i$ in the range $[1, 2^n]$. We need to go that far in order to be certain that we are past $nth$ prime. The formula is as follows:
 $$
 f(n) = 1 + \sum_{i=1}^{2^n} \left\lfloor \left(\frac{n}{\sum_{j=1}^{i} \left\lfloor \left(\cos \pi \frac{(j - 1)! + 1}{j}\right) ^ 2 \right\rfloor} \right) ^ \frac{1}{n} \right\rfloor
 $$
@@ -261,13 +261,13 @@ The method iteself is basically useless, the interesting part is application of 
 Let's calculate algorithm complexity:
 1. From the beginning formula calculates $\left(\cos \pi \frac{(j - 1)! + 1}{j}\right) ^ 2$ for $j$ in range $[1, i]$. It's a constant operation, so it's complexity is $O(1)$.
 
-2. The next inner part calculates \(\sum_{j=1}^{i} \left\lfloor \left(\cos \pi \frac{(j - 1)! + 1}{j}\right) ^ 2 \right\rfloor\) for each \(i\). The sum involves \(i\) terms, and calculating this sum for each \(i\) from 1 to \(2^n\) will have a time complexity of \(O(2^n)\) in the worst case.
+2. The next inner part calculates $\sum_{j=1}^{i} \left\lfloor \left(\cos \pi \frac{(j - 1)! + 1}{j}\right) ^ 2 \right\rfloor$ for each $i$. The sum involves $i$ terms, and calculating this sum for each $i$ from 1 to $2^n$ will have a time complexity of $O(2^n)$ in the worst case.
 
-3. The expression \(\frac{n}{\sum_{j=1}^{i} \left\lfloor \left(\cos \pi \frac{(j - 1)! + 1}{j}\right) ^ 2 \right\rfloor}\) is calculated for each \(i\) and then raised to the power of \(\frac{1}{n}\). These are also \(O(1)\) operations.
+3. The expression $\frac{n}{\sum_{j=1}^{i} \left\lfloor \left(\cos \pi \frac{(j - 1)! + 1}{j}\right) ^ 2 \right\rfloor}$ is calculated for each $i$ and then raised to the power of $\frac{1}{n}$. These are also $O(1)$ operations.
 
-4. The outer sum involves \(2^n\) terms. Therefore, the overall time complexity of the algorithm can be approximated as \(O(2^n)\).
+4. The outer sum involves $2^n$ terms. Therefore, the overall time complexity of the algorithm can be approximated as $O(2^n)$.
 
-So, the algorithm has an exponential time complexity in terms of \(n\), which means it can become very slow for large values of \(n\). It's worth noting that this complexity is based on the mathematical expressions and not on traditional algorithmic operations. In practice, the actual execution time will depend on the specific implementation and the efficiency of the underlying hardware and software.
+So, the algorithm has an exponential time complexity in terms of $n$, which means it can become very slow for large values of $n$. It's worth noting that this complexity is based on the mathematical expressions and not on traditional algorithmic operations. In practice, the actual execution time will depend on the specific implementation and the efficiency of the underlying hardware and software.
 
 Let's code it.
 
